@@ -1,35 +1,37 @@
+import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
   selector: 'page-list',
-  templateUrl: 'list.html'
+  templateUrl: 'list.html',
+  providers: [ServiceProvider]
 })
 export class ListPage {
+  public diag;
+  public tempLesao;
+  users:any[];
+
   selectedItem: any;
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
+  constructor(public navCtrl: NavController, public service: ServiceProvider,public navParams: NavParams) {
+    this.diag = navParams.get("diagnostico");
+    this.tempLesao = navParams.get("tempoDaLesao");
+    console.log(this.diag);
+    console.log(this.tempLesao);
+    this.getDados();
+  }
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
-
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
-    }
+  getDados(){
+    this.service.getData(this.diag,this.tempLesao).subscribe(
+      data=>this.users = data,
+      err=>console.log(err)
+    );
   }
 
   itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
     this.navCtrl.push(ListPage, {
       item: item
     });

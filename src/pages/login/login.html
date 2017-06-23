@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar color="myCor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img  class="logo" src="assets/img/logo_verde2.png"/>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form (ngSubmit)="tentarLogin()">
+      <ion-list>
+        <ion-item>
+          <ion-label color="primary" stacked>Coffito</ion-label>
+          <ion-input type="text" [(ngModel)]="paramCoffito" name="coff"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" stacked>Senha</ion-label>
+          <ion-input [(ngModel)]="paramPassword" name="password"></ion-input>
+        </ion-item>
+      </ion-list>
+      <button ion-button type="submit" block>Fazer Login</button>
+   </form>
+</ion-content>
