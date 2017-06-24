@@ -1,4 +1,4 @@
-import { HomePage } from './../home/home';
+import { ProfilePage } from './../profile/profile';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -9,26 +9,31 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-  public paramCoffito;
+  public paramEmail;
   public paramPassword;
   public login;
+
 
   constructor(public navCtrl: NavController, public service: ServiceProvider) {
 
   }
 
   tentarLogin(){
-    console.log(this.paramCoffito);
+    console.log(this.paramEmail);
     console.log(this.paramPassword);
-    this.service.tryLogin(this.paramCoffito,this.paramPassword).subscribe(data=>this.login=data);
+    this.service.tryLogin(this.paramEmail,this.paramPassword).subscribe(res=>this.login=res);
 
     if(this.login!=null){
-      this.navCtrl.push(HomePage,{
-        nomeFisio: this.login
+      alert("Login realizado com sucesso");
+      this.navCtrl.push(ProfilePage,{
+        nomeFisio: this.login,
+        emailFisio:this.paramEmail,
+        senhaFisio:this.paramPassword
       });
     }
     else{
-      console.log("Falha ao logar");
+      this.paramPassword="";
+      alert("Email ou Senha incorretos");
     }
   }
 

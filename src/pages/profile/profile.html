@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar color="myCor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img  class="logo" src="assets/img/logo_verde2.png"/>
+  </ion-navbar>
+
+  <ion-navbar color="myCor">
+      <ion-title>OLA {{nomeFisioResum}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <form (ngSubmit)="verInfoPerfil()">
+      <button ion-button type="submit" block>Ver Perfil</button>
+  </form>
+
+  <form (ngSubmit)="irTelaPesquisa()">
+      <button ion-button type="submit" block>Fazer Buscas</button>
+  </form>
+
+  <form (ngSubmit)="avaliarUsados()">
+      <button ion-button type="submit" block>Avaliar Tratamentos Usados</button>
+  </form>
+</ion-content>

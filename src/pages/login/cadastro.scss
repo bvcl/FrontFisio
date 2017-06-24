@@ -1,0 +1,26 @@
+page-cadastro{
+  background-repeat: no-repeat;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+
+  .logo{
+      width: 100px;
+      //height: 51px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+      height:auto;
+  }
+
+  .background{
+          background: #006E3c;
+          position: relative;
+          background-repeat: no-repeat;
+          -moz-background-size: 100% 100%;
+          -webkit-background-size: 100% 100%;
+          background-size: 100% 100%;
+  }
+
+}

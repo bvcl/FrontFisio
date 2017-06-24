@@ -14,11 +14,9 @@ export class HomePage {
 
   public filterDiag;
   public filterTempoLesao;
-  public nomeFisio;
 
   constructor(public navCtrl: NavController, public service: ServiceProvider,public navParams: NavParams) {
-        this.nomeFisio=navParams.get("nomeFisio");
-        console.log(this.nomeFisio);
+      
   }
 
   proxima(){

@@ -7,19 +7,21 @@
   </ion-navbar>
 </ion-header>
 
+
 <ion-content padding>
   <form (ngSubmit)="tentarLogin()">
       <ion-list>
         <ion-item>
-          <ion-label color="primary" stacked>Coffito</ion-label>
-          <ion-input type="text" [(ngModel)]="paramCoffito" name="coff"></ion-input>
+          <ion-label color="primary" stacked>Email</ion-label>
+          <ion-input type="text" [(ngModel)]="paramEmail" name="email"></ion-input>
         </ion-item>
 
         <ion-item>
           <ion-label color="primary" stacked>Senha</ion-label>
-          <ion-input [(ngModel)]="paramPassword" name="password"></ion-input>
+          <ion-input type="password" [(ngModel)]="paramPassword" name="password"></ion-input>
         </ion-item>
       </ion-list>
       <button ion-button type="submit" block>Fazer Login</button>
    </form>
+
 </ion-content>
