@@ -22,6 +22,7 @@ export class ListPage {
     console.log(this.diag);
     console.log(this.tempLesao);
     this.getDados();
+    console.log(this.users);
   }
 
   getDados(){

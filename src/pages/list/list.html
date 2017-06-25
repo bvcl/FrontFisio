@@ -10,7 +10,17 @@
 <ion-content>
   <ion-list inset *ngFor="let user of users">
 
-   <p>{{user.link}} <button ion-button clear item-end color="myCor">View</button></p>
+   <p>
+     <ion-item>
+       <ion-label>Link {{user.link}}</ion-label>
+     </ion-item>
+
+     <ion-item>
+       <ion-label>Relevância {{user.relevance}}</ion-label>
+     </ion-item>
+     
+     <!--<button ion-button clear item-end color="myCor">View</button>-->
+   </p>
 
 </ion-list>
 </ion-content>

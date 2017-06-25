@@ -19,11 +19,23 @@ export class LoginPage {
   }
 
   tentarLogin(){
+    //res=>this.login=res
     console.log(this.paramEmail);
     console.log(this.paramPassword);
-    this.service.tryLogin(this.paramEmail,this.paramPassword).subscribe(res=>this.login=res);
+    var ctrl = this.navCtrl;
+    var emailAux = this.paramEmail;
+    var senhaAux = this.paramPassword;
+    this.service.tryLogin(this.paramEmail,this.paramPassword).subscribe(
+      function good(){
+        ctrl.push(ProfilePage,{
+        nomeFisio: "Resolver aqui",
+        emailFisio:emailAux,
+        senhaFisio:senhaAux
+      })},
+      function bad(){alert("Email ou Senha incorretos")}
+    );
 
-    if(this.login!=null){
+    /*if(this.login!=null){
       alert("Login realizado com sucesso");
       this.navCtrl.push(ProfilePage,{
         nomeFisio: this.login,
@@ -34,7 +46,8 @@ export class LoginPage {
     else{
       this.paramPassword="";
       alert("Email ou Senha incorretos");
-    }
+    }*/
+
   }
 
 }
