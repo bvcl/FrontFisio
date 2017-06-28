@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar color="myCor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img  class="logo" src="assets/img/logo_verde2.png"/>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list inset *ngFor="let user of users">
+
+   <p>
+     <ion-item>
+       <ion-label>Link {{user.link}}</ion-label>
+     </ion-item>
+
+     <ion-item>
+       <ion-label>Resumo {{user.resumo}}</ion-label>
+     </ion-item>
+
+     <ion-item>
+       <ion-label>Publicação {{user.anoPublicacao}}</ion-label>
+     </ion-item>
+
+     <ion-item>
+       <ion-label>Comentarios</ion-label>
+     </ion-item>
+     <ion-list text-wrap inset *ngFor="let user2 of users2">
+       <p>
+         <ion-item>
+           <ion-label>Usuário:{{user2.userEmail}}</ion-label>
+         </ion-item>
+
+         <ion-item>
+           <ion-label>{{user2.comentario}}</ion-label>
+         </ion-item>
+       </p>
+     </ion-list>
+
+     <button ion-button clear item-end color="myCor" (click)='selecionar(user.codigo);'>Selecionar</button>
+   </p>
+
+</ion-list>
+</ion-content>

@@ -9,6 +9,9 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { CadastroPage } from '../pages/login/cadastro';
 import { ProfilePage } from '../pages/profile/profile';
+import { AvaliacaoPage } from '../pages/avaliacao/avaliacao';
+import { VisualizarPage } from '../pages/visualizar/visualizar';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -21,7 +24,9 @@ import { ServiceProvider } from '../providers/service/service';
     ListPage,
     LoginPage,
     CadastroPage,
-    ProfilePage
+    ProfilePage,
+    AvaliacaoPage,
+    VisualizarPage
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,9 @@ import { ServiceProvider } from '../providers/service/service';
     ListPage,
     LoginPage,
     CadastroPage,
-    ProfilePage
+    ProfilePage,
+    AvaliacaoPage,
+    VisualizarPage
   ],
   providers: [
     StatusBar,

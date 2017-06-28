@@ -11,24 +11,31 @@
   <form (ngSubmit)="cadastrar()">
       <ion-list>
         <ion-item>
-          <ion-label color="primary" stacked>Email</ion-label>
+          <ion-label color="primary" stacked>Email*</ion-label>
           <ion-input type="text" [(ngModel)]="paramEmailCad" name="email"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" stacked>Nome</ion-label>
+          <ion-label color="primary" stacked>Nome*</ion-label>
           <ion-input type="text" [(ngModel)]="paramNomeCad" name="nome"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" stacked>Senha</ion-label>
-          <ion-input [(ngModel)]="paramSenhaCad" name="senha"></ion-input>
+          <ion-label color="primary" stacked>Senha*</ion-label>
+          <ion-input type="password" [(ngModel)]="paramSenhaCad" name="senha"></ion-input>
         </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" stacked>Coffito</ion-label>
+          <ion-input [(ngModel)]="paramCoffitoCad" name="senha"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label color="primary" stacked>*Obrigatório</ion-label>
+        </ion-item>
+
       </ion-list>
       <button ion-button type="submit" block>Cadastrar</button>
    </form>
 
-   <form (ngSubmit)="irTelaLogin()">
-       <button ion-button type="submit" block>Fazer Login</button>
-  </form>
 </ion-content>

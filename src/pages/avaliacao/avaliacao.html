@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-navbar color="myCor">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img  class="logo" src="assets/img/logo_verde2.png"/>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list text-wrap inset *ngFor="let user of users;let i = index">
+
+   <p>
+     <ion-item>
+       <ion-label>Link {{user.link}}</ion-label>
+     </ion-item>
+
+     <ion-item>
+       <ion-label>Diagnostico {{user.diagnostigo}}</ion-label>
+     </ion-item>
+
+   </p>
+   <ion-item>
+     <ion-textarea placeholder="Adicione um comentario" [(ngModel)]="paramComentario[users2[i]]" clearOnEdit="true"></ion-textarea>
+   </ion-item>
+
+   <button ion-button clear item-end color="myCor" (click)='positivar(user.codigo,users2[i]);'>Positivo</button>
+   <button ion-button clear item-end color="myCor" (click)='negativar(user.codigo,users2[i]);'>Negativo</button>
+   <!--<button ion-button clear item-end color="myCor" (click)='naoAvaliar(users2[i]);'>Não Avaliar</button>-->
+   <button ion-button clear item-end color="myCor" (click)='naoAvaliar(users2[i]);'>Não Avaliar</button>
+</ion-list>
+</ion-content>

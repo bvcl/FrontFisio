@@ -1,0 +1,24 @@
+page-avaliacao {
+    background-repeat: no-repeat;
+    -moz-background-size: 100% 100%;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    .logo{
+        width: 100px;
+        //height: 51px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+        height:auto;
+    }
+
+    .butao{
+        //margin-top: -110px;
+        margin-left: 100px;
+        border: 25px;
+        width: 100px;
+        height: 80px;
+    }
+
+}
