@@ -11,6 +11,8 @@ import { ProfilePage } from './../profile/profile';
 export class AvaliacaoPage {
   users:any[];
   users2:number[];
+  public paramNotaTempTrat;
+  public paramNotaEficacia;
   public emailFisio;
   public nomeFisio;
   public senhaFisio;
@@ -69,54 +71,30 @@ export class AvaliacaoPage {
     );
   }
 
-  positivar(codigoTrat,codigoRel){
+  avaliar(codigoTrat,codigoRel,posOrNeg){
     var navAux = this.navCtrl;
     var nomeAux = this.nomeFisio;
     var emailAux = this.emailFisio;
     var senhaAux = this.senhaFisio;
     var serviceAux = this.service;
-    var commentAux = this.paramComentario[codigoRel];
-    this.paramComentario[codigoRel]="";
-    this.service.adicionarComentario(this.emailFisio,codigoTrat,commentAux).subscribe(
-      function good (){
-        alert("Avaliado Positivamente");
+    var viewAux = this.viewCtrl;
+    this.service.atualizarNotasTratamento(codigoTrat,posOrNeg,this.paramNotaTempTrat,this.paramNotaEficacia).subscribe(
+      function good(){
         serviceAux.excludeFromEvalList(codigoRel).subscribe(
-          function good(){console.log("excluido")},
+          function good(){
+            navAux.push(AvaliacaoPage,{
+              emailFisio:emailAux,
+              nomeFisio:nomeAux,
+              senhaFisio:senhaAux
+            }).then(()=>{
+                  const ind = viewAux.index;
+                  navAux.remove(ind);
+               });
+          },
           function bad(){console.log("nao excluiu")}
         );
-        navAux.push(ProfilePage,{
-          emailFisio:emailAux,
-          nomeFisio:nomeAux,
-          senhaFisio:senhaAux
-        });
       },
-      function bad (){alert("falha")}
-    );;
+      function bad(){console.log("nao avaliou")}
+    );
   }
-
-  negativar(codigoTrat,codigoRel){
-    var navAux = this.navCtrl;
-    var nomeAux = this.nomeFisio;
-    var emailAux = this.emailFisio;
-    var senhaAux = this.senhaFisio;
-    var serviceAux = this.service;
-    var commentAux = this.paramComentario[codigoRel];
-    this.paramComentario[codigoRel]="";
-    this.service.adicionarComentario(this.emailFisio,codigoTrat,commentAux).subscribe(
-      function good (){
-        alert("Avaliado Negativamente");
-        serviceAux.excludeFromEvalList(codigoRel).subscribe(
-          function good(){console.log("excluido")},
-          function bad(){console.log("nao excluiu")}
-        );
-        navAux.push(ProfilePage,{
-          emailFisio:emailAux,
-          nomeFisio:nomeAux,
-          senhaFisio:senhaAux
-        });
-      },
-      function bad (){alert("falha")}
-    );;
-  }
-
 }

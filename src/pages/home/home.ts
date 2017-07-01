@@ -14,6 +14,8 @@ export class HomePage {
 
   public filterDiag;
   public filterTempoLesao;
+  public filterFaixaEtaria;
+  public filterSexo;
   public emailFisio;
   public nomeFisio;
   public senhaFisio;
@@ -28,13 +30,19 @@ export class HomePage {
   proxima(){
     var diagAux = this.filterDiag;
     var tempoLesaoAux = this.filterTempoLesao;
+    var faixaEtariaAux = this.filterFaixaEtaria;
+    var sexoAux = this.filterSexo;
     this.filterDiag="";
     this.filterTempoLesao="";
+    this.filterFaixaEtaria="";
+    this.filterSexo="";
     console.log(this.filterDiag);
     console.log(this.filterTempoLesao);
     this.navCtrl.push(ListPage,{
       diagnostico: diagAux,
       tempoDaLesao: tempoLesaoAux,
+      faixaEtaria: faixaEtariaAux,
+      sexo: sexoAux,
       emailFisio:this.emailFisio,
       nomeFisio:this.nomeFisio,
       senhaFisio:this.senhaFisio

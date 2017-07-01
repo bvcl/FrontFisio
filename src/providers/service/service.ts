@@ -13,8 +13,8 @@ export class ServiceProvider {
     console.log('Hello ServiceProvider Provider');
   }
 
-  getData(url1,url2){
-      return this.http.get(this.api+'/filtro/'+url1+'/'+url2).map(res=>res.json());
+  getData(diag,tempLesao,idade,sexo){
+      return this.http.get(this.api+'/filtro/'+diag+'/'+tempLesao+'/'+idade+'/'+sexo).map(res=>res.json());
   }
 
   getToEvaluate(email){
@@ -26,12 +26,15 @@ export class ServiceProvider {
   excludeFromEvalList(codigo){
       return this.http.delete(this.api+'/user_trat/'+codigo).map(res=>res.json());
   }
+  atualizarNotasTratamento(codigo,posOrNeg,notaTempTrat,notaEficacia){
+      return this.http.put(this.api+'/filtro/update/'+codigo+'/'+posOrNeg+'/'+notaTempTrat+'/'+notaEficacia,"").map(res=>res.json());
+  }
 
   verTratamento(codigo){
       return this.http.get(this.api+'/filtro/'+codigo).map(res=>res.json());
   }
   verComentarios(codigo){
-      return this.http.get(this.api+'/comment_trat/'+codigo).map(res=>res.json());
+      return this.http.get(this.api+'/filtro/'+codigo+'/comentarios').map(res=>res.json());
   }
 
   tryLogin(email,password){
@@ -69,7 +72,7 @@ export class ServiceProvider {
       return  this.http.post(this.api+'/user_trat/', body, {headers : head}).map(res =>  res.json());
   }
 
-  adicionarComentario(email,codigo,comentario){
+  /*adicionarComentario(email,codigo,comentario){
       let data = {
           "userEmail": email,
           "tratID": codigo,
@@ -81,7 +84,7 @@ export class ServiceProvider {
       });
 
       return  this.http.post(this.api+'/comment_trat/', body, {headers : head}).map(res =>  res.json());
-  }
+  }*/
 
 
 

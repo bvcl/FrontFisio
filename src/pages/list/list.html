@@ -3,16 +3,16 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    
+
   </ion-navbar>
 </ion-header>
 
-<ion-content class="cards-bg social-cards"> 
+<ion-content class="cards-bg social-cards">
     <ion-card text-wrap inset *ngFor="let user of users">
       <ion-item>
-        <h2>{{user.link}}</h2>
+        <h2><a href={{user.link}} >{{user.titulo}}</a></h2>
       </ion-item>
-    
+
       <ion-card-content>
         <p>{{user.resumo}}</p>
       </ion-card-content>

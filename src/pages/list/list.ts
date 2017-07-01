@@ -11,6 +11,8 @@ import { VisualizarPage } from './../visualizar/visualizar';
 export class ListPage {
   public diag;
   public tempLesao;
+  public faixaEtaria;
+  public sexo;
   public emailFisio;
   public nomeFisio;
   public senhaFisio;
@@ -23,6 +25,8 @@ export class ListPage {
   constructor(public navCtrl: NavController, public service: ServiceProvider,public navParams: NavParams) {
     this.diag = navParams.get("diagnostico");
     this.tempLesao = navParams.get("tempoDaLesao");
+    this.faixaEtaria = navParams.get("faixaEtaria");
+    this.sexo = navParams.get("sexo");
     this.nomeFisio=navParams.get("nomeFisio");
     this.emailFisio=navParams.get("emailFisio");
     this.senhaFisio=navParams.get("senhaFisio");
@@ -34,7 +38,7 @@ export class ListPage {
   }
 
   getDados(){
-    this.service.getData(this.diag,this.tempLesao).subscribe(
+    this.service.getData(this.diag,this.tempLesao,this.faixaEtaria,this.sexo).subscribe(
       data=>this.users = data,
       err=>console.log(err)
     );

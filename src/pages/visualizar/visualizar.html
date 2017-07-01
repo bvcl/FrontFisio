@@ -11,42 +11,46 @@
 <ion-card text-wrap inset *ngFor="let user of users">
 
   <ion-item>
-    
-    <h2>Marty McFly</h2>
-      
 
-        <ion-card class="card-background-page">
-          <img src="assets/img/testa.png"/>
-          <div class="card-title">{{user.link}}</div>
-          <!--div class="card-subtitle">41 Listings</div-->
-        </ion-card>
-      
+    <h2>{{user.titulo}}</h2>
+
   </ion-item>
 
-  <ion-card-content>
-    <p>Wait a minute. Wait a minute, Doc. Uhhh... Are you telling me that you built a time machine... out of a DeLorean?! Whoa. This is heavy.</p>
+  <ion-card-content style="white-space: normal;">
+    <p>Tratamento:</p>
+    <p>teste tratamento<p>
+    <p>Tempo estimado:</p>
+    <p>{{user.duracaoTrat}} semanas</p>
   </ion-card-content>
 
   <ion-row>
     <ion-col>
       <button ion-button icon-left clear small>
         <ion-icon name="thumbs-up"></ion-icon>
-        <div>12 Likes</div>
+        <div>Nota para o tempo de tratamento: {{user.mediaComentTempoTrat}}</div>
       </button>
-    </ion-col>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="text"></ion-icon>
-        <div>4 Comments</div>
-      </button>
-    </ion-col>
-    <ion-col center text-center>
-      <ion-note>
-        11h ago
-      </ion-note>
     </ion-col>
   </ion-row>
 
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>Nota para a eficácia: {{user.mediaComentEficacia}}</div>
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="text"></ion-icon>
+        <div>Total de avaliações: {{user.avaliacoesNegativas + user.avaliacoesPositivas}}</div>
+      </button>
+    </ion-col>
+  </ion-row>
+
+  <button ion-button clear item-end color="myCor" (click)='selecionar(user.codigo);'>Selecionar</button>
 </ion-card>
 
 

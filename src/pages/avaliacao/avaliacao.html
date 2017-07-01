@@ -12,21 +12,32 @@
 
    <p>
      <ion-item>
-       <ion-label>Link {{user.link}}</ion-label>
+       <ion-label><a href={{user.link}} >{{user.titulo}}</a></ion-label>
      </ion-item>
 
      <ion-item>
-       <ion-label>Diagnostico {{user.diagnostigo}}</ion-label>
+       <ion-label>{{user.diagnostigo}}</ion-label>
      </ion-item>
 
    </p>
-   <ion-item>
+  <!-- <ion-item>
      <ion-textarea placeholder="Adicione um comentario" [(ngModel)]="paramComentario[users2[i]]" clearOnEdit="true"></ion-textarea>
+   </ion-item>-->
+   <ion-item>
+     <ion-label color="dark" floating>Nota para o tempo de tratamento:</ion-label>
+     <ion-input class="texto" type="number" min=0 max=10 [(ngModel)]="paramNotaTempTrat" name="email"></ion-input>
    </ion-item>
 
-   <button ion-button clear item-end color="myCor" (click)='positivar(user.codigo,users2[i]);'>Positivo</button>
-   <button ion-button clear item-end color="myCor" (click)='negativar(user.codigo,users2[i]);'>Negativo</button>
+   <ion-item>
+     <ion-label color="dark" floating>Nota para a eficacia:</ion-label>
+     <ion-input class="texto" type="number" min=0 max=10 [(ngModel)]="paramNotaEficacia" name="email"></ion-input>
+   </ion-item>
+
+   <button ion-button clear item-end color="myCor" (click)='avaliar(user.codigo,users2[i],1);'>Positivo</button>
+   <button ion-button clear item-end color="myCor" (click)='avaliar(user.codigo,users2[i],0);'>Negativo</button>
    <!--<button ion-button clear item-end color="myCor" (click)='naoAvaliar(users2[i]);'>Não Avaliar</button>-->
-   <button ion-button clear item-end color="myCor" (click)='naoAvaliar(users2[i]);'>Não Avaliar</button>
+   <button ion-button clear item-end color="myCor" (click)='naoAvaliar(users2[i]);'>Não Avaliar</button>>
+
+
 </ion-list>
 </ion-content>
