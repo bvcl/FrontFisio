@@ -4,14 +4,84 @@ page-login{
   -webkit-background-size: 100% 100%;
   background-size: 100% 100%;
 
-  .logo{
-      width: 100px;
-      //height: 51px;
-      display: block;
-      margin-left: auto;
-      margin-right: auto;
-      position: relative;
-      height:auto;
+
+  * {
+   overflow-y: hidden !important;
+   overflow-x: hidden !important;
+}
+
+.imagem{
+  background: #006E3c;
+  background-image: url('../assets/img/logo_verde1.png');
+  background-size: 100% 60%;
+  background-repeat: no-repeat;
+
+}
+
+  .scroll-content{
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  ion-card.card{
+    box-shadow: none;
+    background: none;
+    border-radius: 5px;
+  }
+
+  a, p,
+  ion-card-header.card-header{
+    color: #fff;
+  }
+
+  .list > .item-block:first-child{
+    border:  medium none;
+  }
+
+  .login{
+    margin-top: 280px;
+  }
+
+  .item{
+    margin-bottom: -15px;
+    background: none;
+    border: medium none;
+
+    .text-input, {
+      height: 35px;
+      margin-bottom: -5px;
+      background: rgba(255, 255, 255, 1);
+      opacity:0.7;
+      border: medium none;
+    }
+
+    *:-moz-placeholder{
+      color: black!important;
+    }
+    *:-ms-input-placeholder{
+      color: black!important;
+    }
+    *::-webkit-input-placeholder{
+      color: black!important;
+    }
+    input::-moz-placeholder{
+      color: black!important;
+    }
+    input:-moz-placeholder{
+      color: black!important;
+    }
+  }
+
+  .botaoLogin{
+      width: 80px;
+      margin-left: 128px;
+      margin-top: 10px;
+      padding: 10px;
+      background: #fff;
+     
   }
 
   .background{

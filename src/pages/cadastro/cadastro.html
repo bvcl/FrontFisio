@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="myCor">
+  <ion-navbar color="myCor" hideBackButton="true">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -8,34 +8,31 @@
 </ion-header>
 
 <ion-content padding>
+
   <form (ngSubmit)="cadastrar()">
       <ion-list>
         <ion-item>
-          <ion-label color="primary" stacked>Email*</ion-label>
+          <ion-label  floating>Email</ion-label>
           <ion-input type="text" [(ngModel)]="paramEmailCad" name="email"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" stacked>Nome*</ion-label>
+          <ion-label  floating>Nome</ion-label>
           <ion-input type="text" [(ngModel)]="paramNomeCad" name="nome"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" stacked>Senha*</ion-label>
+          <ion-label  floating>Senha</ion-label>
           <ion-input type="password" [(ngModel)]="paramSenhaCad" name="senha"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-label color="primary" stacked>Coffito</ion-label>
+          <ion-label  floating>Coffito</ion-label>
           <ion-input [(ngModel)]="paramCoffitoCad" name="senha"></ion-input>
         </ion-item>
 
-        <ion-item>
-          <ion-label color="primary" stacked>*Obrigatório</ion-label>
-        </ion-item>
-
       </ion-list>
-      <button ion-button type="submit" block>Cadastrar</button>
+      <button ion-button color="myCor" type="submit" block (click)="showToastWithCloseButton()">Cadastrar</button>
    </form>
 
 </ion-content>

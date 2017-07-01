@@ -3,28 +3,29 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <img  class="logo" src="assets/img/logo_verde2.png"/>
+    
   </ion-navbar>
 </ion-header>
 
-<ion-content>
-  <ion-list text-wrap inset *ngFor="let user of users">
-
-   <p>
-     <ion-item>
-
-       <ion-label>Link {{user.link}}</ion-label>
-     </ion-item>
-
-     <ion-item>
-       <ion-label>Relevância {{user.relevance}}</ion-label>
-     </ion-item>
-
-     <ion-item>
-       <ion-label>Avaliações Positivas {{user.quantCurtidas}}</ion-label>
-     </ion-item>
-     <button ion-button clear item-end color="myCor" (click)='visualizar(user.codigo);'>Visualizar</button>
-   </p>
-
-</ion-list>
+<ion-content class="cards-bg social-cards"> 
+    <ion-card text-wrap inset *ngFor="let user of users">
+      <ion-item>
+        <h2>{{user.link}}</h2>
+      </ion-item>
+    
+      <ion-card-content>
+        <p>{{user.resumo}}</p>
+      </ion-card-content>
+      <ion-row>
+    <ion-col>
+      <button ion-button icon-left clear small>
+        <ion-icon name="thumbs-up"></ion-icon>
+        <div>Relevancia {{user.relevance}}</div>
+      </button>
+    </ion-col>
+    <ion-col center text-center>
+    </ion-col>
+  </ion-row>
+      <button ion-button clear full color="myCor" (click)='visualizar(user.codigo);'>Visualizar</button>
+    </ion-card>
 </ion-content>

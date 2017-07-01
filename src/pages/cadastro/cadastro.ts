@@ -1,23 +1,22 @@
 import { LoginPage } from './../login/login';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
 
-//@IonicPage()
+@IonicPage()
 @Component({
-  selector: 'page-login',
-  templateUrl: 'cadastro.html'
+  selector: 'page-cadastro',
+  templateUrl: 'cadastro.html',
 })
-
 export class CadastroPage {
+
   public paramEmailCad;
   public paramNomeCad;
   public paramSenhaCad;
   public paramCoffitoCad;
   public result;
-
-  constructor(public navCtrl: NavController, public service: ServiceProvider) {
-
+  constructor(public navCtrl: NavController, public navParams: NavParams,public service: ServiceProvider,public toastCtrl: ToastController) {
   }
 
   cadastrar(){
@@ -29,11 +28,20 @@ export class CadastroPage {
       this.paramNomeCad="";
       this.paramSenhaCad="";
       this.paramCoffitoCad="";
-      var ctrl = this.navCtrl;
       this.service.cadastrar(emailAux,nomeAux,senhaAux,coffitoAux).subscribe(
-        function good(){alert("Cadastro Válido");ctrl.push(LoginPage)},
-        function bad(){alert("Cadastro Inválido")}
+        
+        //function good(){alert("Cadastro Válido");ctrl.push(LoginPage)},
+        //function bad(){alert("Cadastro Inválido")}
+
       );
+  }
+
+  showToastWithCloseButton() {
+    const toast = this.toastCtrl.create({
+      message: 'Cadastro realizado com sucesso!',
+      duration: 1000,
+    });
+    toast.present(this.navCtrl.push(LoginPage));
   }
 
 }

@@ -1,5 +1,5 @@
+import { CadastroPage } from './../cadastro/cadastro';
 import { ProfilePage } from './../profile/profile';
-import { CadastroPage } from './../login/cadastro';
 import { ServiceProvider } from './../../providers/service/service';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
