@@ -97,4 +97,18 @@ export class AvaliacaoPage {
       function bad(){console.log("nao avaliou")}
     );
   }
+
+  shownGroup = null;
+
+  toggleGroup(group) {
+    if (this.isGroupShown(group)) {
+        this.shownGroup = null;
+    } else {
+        this.shownGroup = group;
+    }
+};
+isGroupShown(group) {
+    return this.shownGroup === group;
+};
+
 }

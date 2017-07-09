@@ -6,92 +6,63 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content >
+  <ion-list  *ngFor="let user of users">
+    <ion-list-header text-wrap inset >
+      <h2 class="negrito">{{user.titulo}}</h2>
+      <p>
+        <button class="avaliacao" ion-button icon-start>
+          <ion-icon name="star"></ion-icon>
+          Avaliações
+        </button>
+      </p>
+    </ion-list-header>
+    <ion-item *ngFor="let user of users; let d=index" text-wrap (click)="toggleGroup(d)" [ngClass]="{active1: isGroupShown(d)}">
+          <h3>
+            Indivíduos Recrutados
+            <ion-icon color="success" item-right [name]="isGroupShown(d) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+          </h3>
+          <div *ngIf="isGroupShown(d)">{{user.numeroParticipantes}}</div>
+        
+      </ion-item>
 
-<ion-card text-wrap inset *ngFor="let user of users">
+      <ion-item *ngFor="let user of users; let e=index" text-wrap (click)="toggleGroup(e)" [ngClass]="{active1: isGroupShown(e)}">
+          <h3>
+            Duração do Tratamento
+            <ion-icon color="success" item-right [name]="isGroupShown(e) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+          </h3>
+          <div *ngIf="isGroupShown(e)">{{user.duracaoTrat}}</div>
+        
+      </ion-item>
 
-  <ion-item>
+      <ion-item *ngFor="let user of users; let f=index" text-wrap (click)="toggleGroup(f)" [ngClass]="{active1: isGroupShown(f)}">
+          <h3>
+            Tratamento
+            <ion-icon color="success" item-right [name]="isGroupShown(f) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+          </h3>
+          <div *ngIf="isGroupShown(f)">{{user.tratamento}}</div>
+        
+      </ion-item>
 
-    <h2>{{user.titulo}}</h2>
+      <ion-item *ngFor="let user of users; let f=index" text-wrap (click)="toggleGroup(f)" [ngClass]="{active1: isGroupShown(f)}">
+          <h3>
+            Conclusão do Artigo
+            <ion-icon color="success" item-right [name]="isGroupShown(f) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
+          </h3>
+          <div *ngIf="isGroupShown(f)">{{user.resumo}}</div>
+        
+      </ion-item>
 
-  </ion-item>
+       <button ion-button full item-end color="myCor" (click)='selecionar(user.codigo);'>Selecionar</button>
+    
+  </ion-list>
 
-  <ion-card-content style="white-space: normal;">
-    <p>Tratamento:</p>
-    <p>teste tratamento<p>
-    <p>Tempo estimado:</p>
-    <p>{{user.duracaoTrat}} semanas</p>
-  </ion-card-content>
+    
 
-  <ion-row>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>Nota para o tempo de tratamento: {{user.mediaComentTempoTrat}}</div>
-      </button>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>Nota para a eficácia: {{user.mediaComentEficacia}}</div>
-      </button>
-    </ion-col>
-  </ion-row>
-
-  <ion-row>
-    <ion-col>
-      <button ion-button icon-left clear small>
+      <!--button ion-button icon-left clear small>
         <ion-icon name="text"></ion-icon>
         <div>Total de avaliações: {{user.avaliacoesNegativas + user.avaliacoesPositivas}}</div>
-      </button>
-    </ion-col>
-  </ion-row>
+      </button-->
 
-  <button ion-button clear item-end color="myCor" (click)='selecionar(user.codigo);'>Selecionar</button>
-</ion-card>
-
-
-
-
-
-
-
-
-  <!--ion-list inset *ngFor="let user of users">
-
-   <p>
-     <ion-item>
-       <ion-label>Link {{user.link}}</ion-label>
-     </ion-item>
-
-     <ion-item>
-       <ion-label>Resumo {{user.resumo}}</ion-label>
-     </ion-item>
-
-     <ion-item>
-       <ion-label>Publicação {{user.anoPublicacao}}</ion-label>
-     </ion-item>
-
-     <ion-item>
-       <ion-label>Comentarios</ion-label>
-     </ion-item>
-     <ion-list text-wrap inset *ngFor="let user2 of users2">
-       <p>
-         <ion-item>
-           <ion-label>Usuário:{{user2.userEmail}}</ion-label>
-         </ion-item>
-
-         <ion-item>
-           <ion-label>{{user2.comentario}}</ion-label>
-         </ion-item>
-       </p>
-     </ion-list>
-
-     <button ion-button clear item-end color="myCor" (click)='selecionar(user.codigo);'>Selecionar</button>
-   </p>
-
-</ion-list-->
+ 
 </ion-content>

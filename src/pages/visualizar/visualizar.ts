@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams,ViewController } from 'ionic-angular';
 import { ProfilePage } from './../profile/profile';
 
+
 @Component({
   selector: 'page-visualizar',
   templateUrl: 'visualizar.html',
@@ -66,5 +67,29 @@ export class VisualizarPage {
     );
 
   }
+
+  shownGroup = null;
+
+  toggleGroup(group) {
+    if (this.isGroupShown(group)) {
+        this.shownGroup = null;
+    } else {
+        this.shownGroup = group;
+    }
+};
+isGroupShown(group) {
+    return this.shownGroup === group;
+};
+
+expandItem(item){
+  this.users.map((listItem)=>{
+    if(item == listItem){
+      listItem.expanded = !listItem.expanded;
+    }else{
+      listItem.expanded = false;
+    }
+    return listItem;
+  });
+}
 
 }

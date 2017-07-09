@@ -9,26 +9,57 @@
 
 <ion-content padding>
   <form (ngSubmit)="proxima()">
-      <ion-list>
+      <ion-list radio-group>
         <ion-item>
-          <ion-label color="primary" stacked>Diagnostico</ion-label>
+          <ion-label color="myCor" stacked>Diagnostico</ion-label>
           <ion-input type="text" [(ngModel)]="filterDiag" name="diag"></ion-input>
         </ion-item>
 
-        <ion-item>
-          <ion-label color="primary" stacked>Tempo da Lesão</ion-label>
-          <ion-input [(ngModel)]="filterTempoLesao" name="tempoLesao"></ion-input>
-        </ion-item>
+          <div class="radio">
+            <ion-label color="myCor" stacked>Tempo da Lesão</ion-label>
+              <label class="radio-inline" padding>
+              <input type="radio" [(ngModel)]="filterTempoLesao" name="Aguda" value="Aguda"> Aguda
+            </label>
+            <label class="radio-inline" padding>
+              <input type="radio" [(ngModel)]="filterTempoLesao" name="Crônica" value="Crônica"> Crônica
+            </label>
+          </div>
+          <br>
 
-        <ion-item>
-          <ion-label color="primary" stacked>Faixa Etária</ion-label>
-          <ion-input [(ngModel)]="filterFaixaEtaria" name="tempoLesao"></ion-input>
-        </ion-item>
+        <div class="radio">
+            <ion-label color="myCor" stacked>Faixa Etária</ion-label>
+            <label class="radio-inline" padding>
+              <input type="radio" [(ngModel)]="filterFaixaEtaria" name="Criança" value="Criança"> Criança
+            </label>
+            <label class="radio-inline" padding>
+              <input type="radio" [(ngModel)]="filterFaixaEtaria" name="Adulto" value="Adulto"> Adulto
+            </label>
+            <label class="radio-inline" padding>
+              <input type="radio" [(ngModel)]="filterFaixaEtaria" name="Idoso" value="Idoso"> Idoso
+            </label>
+          </div>
+          <br>
 
-        <ion-item>
-          <ion-label color="primary" stacked>Sexo Paciente</ion-label>
-          <ion-input [(ngModel)]="filterSexo" name="tempoLesao"></ion-input>
-        </ion-item>
+          <div class="radio">
+            <ion-label color="myCor" stacked>Sexo Paciente</ion-label>
+            <label class="radio-inline" padding>
+              <input type="radio" [(ngModel)]="filterSexo" name="Masculino" value="Masculino"> Masculino
+            </label>
+            <label class="radio-inline" padding>
+              <input type="radio" [(ngModel)]="filterSexo" name="Feminino" value="Feminino"> Feminino
+            </label>
+          </div>
+  
+
+        <!--ion-item>
+          <ion-label color="myCor" stacked>Faixa Etária</ion-label>
+          <ion-input [(ngModel)]="filterFaixaEtaria" name="faixaEtaria"></ion-input>
+        </ion-item-->
+
+        <!--ion-item>
+          <ion-label color="myCor" stacked>Sexo Paciente</ion-label>
+          <ion-input [(ngModel)]="filterSexo" name="sexoPaciente"></ion-input>
+        </ion-item-->
       </ion-list>
       <button color="myCor" ion-button type="submit" block>Buscar Tratamento</button>
    </form>

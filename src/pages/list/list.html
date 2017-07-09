@@ -7,25 +7,22 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content class="cards-bg social-cards">
-    <ion-card text-wrap inset *ngFor="let user of users">
-      <ion-item>
-        <h2><a href={{user.link}} >{{user.titulo}}</a></h2>
-      </ion-item>
 
-      <ion-card-content>
-        <p>{{user.resumo}}</p>
-      </ion-card-content>
-      <ion-row>
-    <ion-col>
-      <button ion-button icon-left clear small>
-        <ion-icon name="thumbs-up"></ion-icon>
-        <div>Relevancia {{user.relevance}}</div>
-      </button>
-    </ion-col>
-    <ion-col center text-center>
-    </ion-col>
-  </ion-row>
-      <button ion-button clear full color="myCor" (click)='visualizar(user.codigo);'>Visualizar</button>
+
+<ion-content class="cards-bg social-cards" color="cinza">
+  <div class="page-header">
+    
+     <ion-card class="borda"  text-wrap inset *ngFor="let user of users" color="cinza">
+       
+    
+       <ion-card-content class="cartao"> 
+         
+         <ion-card class="cartao1" *ngIf="user.relevance >= 30 " then color="myCor"><button class="teste" ion-button clear full color="myCor" (click)='visualizar(user.codigo);'><ion-card-content><p class="p1">Relevancia</p> <br><p class="p3">{{user.relevance}}%</p></ion-card-content></button></ion-card>
+         <ion-card class="cartao1" *ngIf="user.relevance < 30 &&  user.relevance >= 25 " then color="verde" ><button class="teste" ion-button clear full color="myCor" (click)='visualizar(user.codigo);'><ion-card-content><p class="p1">Relevancia</p> <br><p class="p3">{{user.relevance}}%</p></ion-card-content></button></ion-card>
+         <ion-card class="cartao1" *ngIf="user.relevance < 25" then color="verde1" ><button class="teste" ion-button clear full color="myCor" (click)='visualizar(user.codigo);'><ion-card-content><p class="p1">Relevancia</p> <br><p class="p3">{{user.relevance}}%</p></ion-card-content></button></ion-card>
+         <p class="p"><button ion-button class="fonte" text-wrap inset  full color="cinza" (click)='visualizar(user.codigo);'>{{user.titulo}}</button></p>
+       </ion-card-content>
     </ion-card>
+  </div>
+  <img  class="logo" src="assets/img/cobra.png"/>
 </ion-content>

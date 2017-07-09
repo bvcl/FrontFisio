@@ -3,22 +3,96 @@ page-list {
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;
+     * {
+   overflow-y: hidden !important;
+   overflow-x: hidden !important;
+}
+    .h6 {
+    font-weight: normal;
+    }
+    .teste{
+        width: 150%;
+        height: 90%;
+        margin-left: -10px;
+    }
+
+    
+
+    .p{
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 500;
+        line-height: 15.4px; 
+         
+    }
+
+    .fonte{
+        font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        font-size: 10px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 500;
+        line-height: 15.4px;  
+        letter-spacing: 0.9px;
+        color: black;
+        width: 218px;
+        height: 80px;
+        margin-top: -13px; 
+        margin-right: 50px;
+        position: absolute;
+        text-align: left;
+
+    }
+
+    .p1{
+        font-size: 12px;
+        letter-spacing: -0.1px;  
+        margin-left: -13.7px; 
+        color: #fff;  
+    }
+    .p3{
+        margin-top: -7px;
+        margin-left: -4px;
+        color: #fff; 
+    }
+    .verde{
+        background: #006E3c;
+    }
     .logo{
-        width: 100px;
-        //height: 51px;
+        width: 150px;
         display: block;
-        margin-left: auto;
-        margin-right: auto;
+        margin-left: 175px;
+        margin-top: 42px;
         position: relative;
         height:auto;
     }
 
-    .butao{
-        //margin-top: -110px;
-        margin-left: 100px;
-        border: 25px;
-        width: 100px;
+    .botao{
+        width: 90px;
+        height: 40px;
+        
+    }
+
+    .cartao{
+        width: 221px;
         height: 80px;
+        
+    }
+
+    .borda{
+        border-radius: 10px;
+    }
+
+    .cartao1{
+        width: 75px;
+        height: 80px;
+        margin-left: 210px;
+        margin-top: -13px;
+        position: absolute;
+        border-radius: 10px;
+        
     }
 
     .listar{
