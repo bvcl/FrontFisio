@@ -9,7 +9,7 @@
 <ion-content >
   <ion-list  *ngFor="let user of users">
     <ion-list-header text-wrap inset >
-      <h2 class="negrito">{{user.titulo}}</h2>
+      <h2 class="negrito"><a href={{user.link}} >{{user.titulo}}</a></h2>
       <p>
         <button class="avaliacao" ion-button icon-start>
           <ion-icon name="star"></ion-icon>
@@ -23,7 +23,7 @@
             <ion-icon color="success" item-right [name]="isGroupShown(d) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
           </h3>
           <div *ngIf="isGroupShown(d)">{{user.numeroParticipantes}}</div>
-        
+
       </ion-item>
 
       <ion-item *ngFor="let user of users; let e=index" text-wrap (click)="toggleGroup(e)" [ngClass]="{active1: isGroupShown(e)}">
@@ -32,7 +32,7 @@
             <ion-icon color="success" item-right [name]="isGroupShown(e) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
           </h3>
           <div *ngIf="isGroupShown(e)">{{user.duracaoTrat}}</div>
-        
+
       </ion-item>
 
       <ion-item *ngFor="let user of users; let f=index" text-wrap (click)="toggleGroup(f)" [ngClass]="{active1: isGroupShown(f)}">
@@ -41,7 +41,7 @@
             <ion-icon color="success" item-right [name]="isGroupShown(f) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
           </h3>
           <div *ngIf="isGroupShown(f)">{{user.tratamento}}</div>
-        
+
       </ion-item>
 
       <ion-item *ngFor="let user of users; let f=index" text-wrap (click)="toggleGroup(f)" [ngClass]="{active1: isGroupShown(f)}">
@@ -50,19 +50,19 @@
             <ion-icon color="success" item-right [name]="isGroupShown(f) ? 'arrow-dropdown' : 'arrow-dropright'"></ion-icon>
           </h3>
           <div *ngIf="isGroupShown(f)">{{user.resumo}}</div>
-        
+
       </ion-item>
 
        <button ion-button full item-end color="myCor" (click)='selecionar(user.codigo);'>Selecionar</button>
-    
+
   </ion-list>
 
-    
+
 
       <!--button ion-button icon-left clear small>
         <ion-icon name="text"></ion-icon>
         <div>Total de avaliações: {{user.avaliacoesNegativas + user.avaliacoesPositivas}}</div>
       </button-->
 
- 
+
 </ion-content>
